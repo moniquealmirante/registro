@@ -1,0 +1,31 @@
+services:
+  api:
+    build: .
+    ports:
+      - "5036:80"
+      - "7233:443"
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=registroDb;Username=postgres;Password=postgres
+    networks:
+      - registro-net
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: registroDb
+    ports:
+      - "5432:5432"
+    networks:
+      - registro-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      retries: 10
+
+networks:
+  registro-net:
+    driver: bridge

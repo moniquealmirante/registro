@@ -1,0 +1,7 @@
+Conecta com o banco de dados. Contém:
+
+ID
+RECEBEDOR
+FORNECEDOR
+LIVRO EMPRESTADO 
+DATA DO EMPRESTIMO
