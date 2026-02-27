@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace registro.Models
 {
-    public class Emprestimo
+    public class EmprestimosModel
     {
         public int Id { get; set; }
         public string Recebedor {get; set; } = null!;
         public string Fornecedor { get; set; } = null!;
         public string LivroEmprestado { get; set; } = null!;
-        public DateTime DataEmprestimo { get; set; } = DateTime.Now;
+        public DateTime dataUltimaUtilizacao { get; set; } = DateTime.Now;
     }
 }
